@@ -11,16 +11,20 @@
 			if ((event.keyCode < 48 || event.keyCode > 57) ) event.returnValue = false;
 		}
 		function Average() {
-			var mas=document.getElementsByTagName('input');
+			var mas=document.getElementById('number-only').value;
 			var sum = 0;
-			for (var i = 0; i < mas.length; i++ )
-				sum += mas[i].value;
+			for (var i = 0; i < mas.length; i++ ){
+				sum += +mas[i];
+				console.log(sum);
+			}
 			sum=sum/mas.length;
 			document.getElementById('rez').value=sum;
+			console.log(mas);
+			console.log(mas.length);
 		}
 
 	</script>
 	<h2>Hello,World!</h2>
 	<input id="number-only" placeholder="Только цифры" size="20" onKeyPress="Number();" onblur="Average();">
+	<label>Среднее арифметическое:<input type="text" id='rez'></label>
 </body>
-<label>Среднее арифметическое:<input type="text" id='rez'></label>
